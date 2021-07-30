@@ -24,7 +24,7 @@ const (
 
 type setupFunc func(*run.Group, log.Logger) error
 
-func main() {
+func main_() {
 	if os.Getenv("DEBUG") != "" {
 		runtime.SetMutexProfileFraction(10)
 		runtime.SetBlockProfileRate(10)
