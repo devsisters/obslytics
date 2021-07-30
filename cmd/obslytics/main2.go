@@ -39,6 +39,7 @@ const (
 	s3ParquetBucketNameForTest = "devsisters-alicek106-isms-test"
 )
 
+// 어떻게 고쳐야 할까?
 func seriesToS3Parquet(maxt time.Time, mint time.Time, metricMatchers []*labels.Matcher) {
 	logger := log.NewLogfmtLogger(os.Stderr)
 
@@ -151,5 +152,6 @@ func main() {
 		labels.MustNewMatcher(labels.MatchEqual, "__name__", "prometheus_tsdb_head_series"),
 	}
 
-	seriesToS3Parquet(maxt, mint, metricMatchers)
+	seriesToFileParquet(maxt, mint, metricMatchers)
+	//seriesToS3Parquet(maxt, mint, metricMatchers)
 }
